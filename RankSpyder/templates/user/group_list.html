@@ -1,0 +1,23 @@
+
+{% include "urlsplit.html" %}
+
+
+<a href="{% url 'users:newgroup' %}">
+    <input type="button" value="Add Group">
+</a>
+<table>
+    <tr>
+        <td> ID </td>
+        <td> Name </td>
+        <td> Platform Number </td>
+        <td> </td>
+    </tr>
+    {% for g in groups %}
+        <td> {{g.id}} </td>
+        <td> <a href="{% url 'users:group_detial' g.id %}">{{g.name}}</a> </td>
+        <td> {{g.platformNum}} </td>
+        <td> 
+            <a href="{% url 'users:delgroup' g.id %}"><button>Del</button></a>
+        </td>
+    {% endfor %}
+</table>

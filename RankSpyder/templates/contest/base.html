@@ -1,0 +1,9 @@
+
+{% include "urlsplit.html" %}
+
+<h4>{{contest.platform}}:{{contest.contestId}}</h4>
+
+<h1>{{contest.contestName}}</h1>
+
+<p> <a href="{% url 'contest:view_submitions' contest.id %}"> View Submitions</a><p>
+<p> <a href="{% url 'contest:view_rank' contest.id %}"> View Rank </a> </p>

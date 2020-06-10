@@ -1,0 +1,8 @@
+
+{% include "urlsplit.html" %}
+
+<form action="{% url 'contest:new' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>

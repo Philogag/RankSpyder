@@ -1,0 +1,22 @@
+
+{% include "contest/base.html" %}
+
+<h2>Submitions:</h2> 
+<a href="{% url 'contest:flush_submition' contest.id %}">
+    <button> ReDownload </button>
+</a>
+<buttom>
+<table>
+    <td>User</td>
+    <td>Problem ID</td>
+    <td>Status</td>
+    <td>Time</td>
+    {% for submit in submitions %}
+    <tr>
+        <td>{{ submit.userId }}</td>
+        <td>{{ submit.problemId }}</td>
+        <td>{{ submit.status }}</td>
+        <td>{{ submit.submitTime }}</td>
+    </tr>
+    {% endfor %}
+</table>

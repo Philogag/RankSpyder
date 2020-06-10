@@ -1,0 +1,30 @@
+
+{% load customtags %}
+{% include "contest/base.html" %}
+
+<h2>Rank:</h2>
+<a href="{% url 'contest:flush_rank' contest.id %}">
+    <button> ReBuild </button>
+</a>
+<table>
+    <tr>
+        <td>Rank</td>
+        <td>User</td>
+        <td>AC</td>
+        <td>Time</td>
+        {% for s in problems %}
+        <td> {{s}} </td>
+        {% endfor %}
+    </tr>
+    {% for r in ranks %}
+    <tr>
+        <td>{{ r.rank }}</td>
+        <td>{{ r.userId }}</td>
+        <td>{{ r.ac }}</td>
+        <td>{{ r.time }}</td>
+        {% for s in r.ac_detail|split_str:","|to_delta_time %}
+        <td> {{s}} </td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
